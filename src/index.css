@@ -1,5 +1,9 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --shadow-color: rgba(121, 236, 236, 0.75);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,4 +16,88 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.head-cont {
+  padding: 0 20px;
+}
+
+.main-header {
+  box-shadow: 0px 2px 29px 11px var(--shadow-color);
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.header-link {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  margin-right: 25px;
+  display: inline-flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.header-link:hover,
+.header-link:focus {
+  background-color: var(--shadow-color);
+  color: #fff;
+}
+
+.header-link.active {
+  background-color: var(--shadow-color);
+  color: #fff;
+}
+
+.list-movies {
+  font-size: 18px;
+}
+
+.go-back {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  margin: 25px;
+  display: inline-flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.go-back:hover,
+.go-back:focus {
+  background-color: var(--shadow-color);
+  color: #fff;
+}
+
+.container-movie-details {
+  display: flex;
+  gap: 30px;
+}
+
+.list {
+  list-style: none;
+}
+.list-add-info {
+  display: flex;
+}
+.item-casts {
+  box-shadow: 0px 2px 29px 11px var(--shadow-color);
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.input {
+  display: block;
+  border: none;
+  width: 300px;
+  height: 36px;
+  border-radius: 10px;
+  margin-top: 26px;
+  box-shadow: 0px 2px 29px 11px var(--shadow-color);
+}
+
+.label {
+  display: flex;
 }
