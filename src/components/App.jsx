@@ -1,11 +1,12 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Home from './Home/Home';
 import Layout from './Layout/Layout';
 import Loader from './Loader/Loader';
-import LoginForm from './LoginForm/LoginForm';
-import Phonebook from './PhoneBook/Phonebook';
-import RegisterForm from './RegisterForm/RegisterForm';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const ContactsPage = lazy(() => import('../pages/PhoneBookPage'));
 
 export const App = () => {
   return (
@@ -13,10 +14,10 @@ export const App = () => {
       <Suspense fallback={<Loader />}>
         <div>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginForm />} />
-            <Route path="/register" element={<RegisterForm />} />
-            <Route path="/contacts" element={<Phonebook />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/contacts" element={<ContactsPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
