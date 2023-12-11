@@ -1,7 +1,8 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Loader from 'components/Loader/Loader';
+import React, { Suspense } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <div className="head-cont">
       <header className="main-header">
@@ -18,7 +19,11 @@ const Layout = ({ children }) => {
           PhoneBook
         </NavLink>
       </header>
-      <main>{children}</main>
+      <main>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </main>
     </div>
   );
 };

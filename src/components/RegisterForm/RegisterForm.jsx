@@ -14,13 +14,19 @@ const RegisterForm = () => {
 
           <p className={css.titleLable}>Email</p>
           <label htmlFor="" className={css.lable}>
-            <input name="phone" type="email" className={css.input} required />
+            <input
+              name="userEmail"
+              type="email"
+              className={css.input}
+              autoComplete="current-email"
+              required
+            />
           </label>
 
           <p className={css.titleLable}>Password</p>
           <label htmlFor="" className={css.lable}>
             <input
-              name="pasword"
+              name="userPasword"
               type="password"
               className={css.input}
               autoComplete="current-password"

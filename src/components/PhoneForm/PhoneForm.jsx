@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts.selector';
+import { selectContacts } from 'redux/contacts/contacts.selector';
 import { addContact } from 'redux/operation';
 import css from './PhoneForm.module.css';
 
