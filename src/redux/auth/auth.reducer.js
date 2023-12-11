@@ -1,5 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { authLogOut, authLogin, authRefresh, authRegister } from './operations';
+import {
+  authLogOut,
+  // authLogin,
+  authRefresh,
+  authRegister,
+  loginThunk,
+} from './operations';
 
 const initialState = {
   isLoading: false,
@@ -15,7 +21,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(authLogin.fulfilled, (state, { payload }) => {
+      .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.authenticated = true;
         state.token = payload.token;
@@ -38,7 +44,7 @@ const authSlice = createSlice({
 
       .addMatcher(
         isAnyOf(
-          authLogin.pending,
+          loginThunk.pending,
           authRegister.pending,
           authRefresh.pending,
           authLogOut.pending
@@ -50,7 +56,7 @@ const authSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          authLogin.rejected,
+          loginThunk.rejected,
           authRegister.rejected,
           authRefresh.rejected,
           authLogOut.rejected

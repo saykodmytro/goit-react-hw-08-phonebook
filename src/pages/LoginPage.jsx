@@ -4,7 +4,7 @@ import React from 'react';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthError, selectAuthIsLoading } from 'redux/auth/auth.selector';
-import { authLogin } from 'redux/auth/operations';
+import { loginThunk } from 'redux/auth/operations';
 import Loader from 'components/Loader/Loader';
 
 const LoginPage = () => {
@@ -14,11 +14,11 @@ const LoginPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const userEmail = e.currentTarget.elements.userEmail.value;
-    const userPassword = e.currentTarget.elements.userPassword.value;
-    const userData = { userEmail, userPassword };
+    const email = e.currentTarget.elements.userEmail.value;
+    const password = e.currentTarget.elements.userPassword.value;
+    const userData = { email, password };
 
-    dispatch(authLogin(userData));
+    dispatch(loginThunk(userData));
   };
 
   return (

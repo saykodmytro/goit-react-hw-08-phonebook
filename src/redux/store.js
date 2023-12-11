@@ -1,6 +1,7 @@
 import { authReducer } from './auth/auth.reducer';
 import { contactReducer } from './contacts/contacts.reducer';
 import {
+  persistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -31,3 +32,5 @@ export const store = configureStore({
       },
     }),
 });
+
+export const persistor = persistStore(store);

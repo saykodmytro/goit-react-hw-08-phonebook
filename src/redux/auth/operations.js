@@ -22,11 +22,11 @@ export const authRegister = createAsyncThunk(
   }
 );
 
-export const authLogin = createAsyncThunk(
+export const loginThunk = createAsyncThunk(
   'auth/login',
-  async (userData, thunkApi) => {
+  async (formData, thunkApi) => {
     try {
-      const { data } = await instance.post('/users/login', userData);
+      const { data } = await instance.post('/users/login', formData);
       setToken(data.token);
 
       return data;

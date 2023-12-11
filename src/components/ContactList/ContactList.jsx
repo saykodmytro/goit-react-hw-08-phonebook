@@ -1,25 +1,16 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectVisibleContacts } from 'redux/contacts/contacts.selector';
-import { deleteContact, fetchContacts } from 'redux/contacts/operations';
-
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'redux/contacts/operations';
 import css from './ContactList.module.css';
 
-const ContactList = () => {
+const ContactList = ({ contacts }) => {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectVisibleContacts);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <ul className={css.list}>
       {contacts.length > 0 &&
-        contacts.map(({ id, name, phone }) => (
+        contacts.map(({ id, name, number }) => (
           <li key={id} className={css.item}>
             <p className={css.descrList}>{name}</p>
-            <p className={css.descrList}>{phone}</p>
+            <p className={css.descrList}>{number}</p>
             <button
               type="button"
               className={css.btnDel}

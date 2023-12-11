@@ -11,10 +11,10 @@ const UserProfil = () => {
   };
 
   return (
-    <div>
-      {name ?? <p>Name: {name}</p>}
+    <div className="container-user-profil">
+      <p className="user-name"> Name: {name}</p>
 
-      <button type="button" onClick={OnClickLogOut}>
+      <button className="btn-logout" type="button" onClick={OnClickLogOut}>
         Logout
       </button>
     </div>

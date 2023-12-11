@@ -22,6 +22,7 @@ code {
 }
 
 .main-header {
+  display: flex;
   box-shadow: 0px 2px 29px 11px var(--shadow-color);
   padding: 20px 30px;
   margin-bottom: 20px;
@@ -90,4 +91,40 @@ code {
 
 .label {
   display: flex;
+}
+
+.container-user-profil {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  font-size: 20px;
+}
+
+.btn-logout {
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  margin-right: 25px;
+  display: inline-flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.btn-logout:hover,
+.btn-logout:focus {
+  background-color: var(--shadow-color);
+  color: #fff;
+}
+
+.user-name {
+  margin: 0;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  margin-right: 25px;
+  display: inline-flex;
+  border: 1px solid black;
+  border-radius: 10px;
 }

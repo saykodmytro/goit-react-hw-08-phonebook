@@ -10,13 +10,13 @@ const PhoneForm = () => {
   const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleAddContact = newContact => {
     const hasDuplicates = contacts.some(
       contact =>
         contact.name.toLowerCase() === newContact.name.toLowerCase() ||
-        contact.phone === newContact.phone
+        contact.number === newContact.number
     );
 
     if (hasDuplicates) {
@@ -32,19 +32,19 @@ const PhoneForm = () => {
     const newContact = {
       id: nanoid(),
       name: name,
-      phone: phone,
+      number: number,
     };
 
     handleAddContact(newContact);
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   const handleChange = e => {
     if (e.target.name === 'name') {
       setName(e.target.value);
-    } else if (e.target.name === 'phone') {
-      setPhone(e.target.value);
+    } else if (e.target.name === 'number') {
+      setNumber(e.target.value);
     }
   };
 
@@ -66,10 +66,10 @@ const PhoneForm = () => {
       <label htmlFor="" className={css.lable}>
         <input
           onChange={handleChange}
-          name="phone"
+          name="number"
           type="text"
           className={css.input}
-          value={phone}
+          value={number}
         />
       </label>
       <button type="submit" className={css.btnForm}>
