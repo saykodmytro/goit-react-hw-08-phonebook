@@ -11,9 +11,9 @@ const setToken = token => {
 
 export const authRegister = createAsyncThunk(
   'auth/register',
-  async (userData, thunkApi) => {
+  async (formData, thunkApi) => {
     try {
-      const { data } = await instance.post('/users/signup', userData);
+      const { data } = await instance.post('/users/signup', formData);
       setToken(data.token);
       return data;
     } catch (err) {
