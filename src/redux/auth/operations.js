@@ -23,7 +23,7 @@ export const authRegister = createAsyncThunk(
 );
 
 export const authLogin = createAsyncThunk(
-  '/auth/login',
+  'auth/login',
   async (userData, thunkApi) => {
     try {
       const { data } = await instance.post('/users/login', userData);

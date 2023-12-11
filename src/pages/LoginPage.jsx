@@ -15,7 +15,7 @@ const LoginPage = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const userEmail = e.currentTarget.elements.userEmail.value;
-    const userPassword = e.currentTarget.elements.pasword.value;
+    const userPassword = e.currentTarget.elements.userPassword.value;
     const userData = { userEmail, userPassword };
 
     dispatch(authLogin(userData));
@@ -39,7 +39,8 @@ const LoginPage = () => {
           <p className={css.titleLable}>Password</p>
           <label htmlFor="" className={css.lable}>
             <input
-              name="pasword"
+              name="userPassword"
+              minLength={7}
               type="password"
               className={css.input}
               autoComplete="current-password"
