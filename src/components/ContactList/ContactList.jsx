@@ -7,14 +7,14 @@ const ContactList = ({ contacts }) => {
   return (
     <ul className={css.list}>
       {contacts.length > 0 &&
-        contacts.map(({ id, name, number }) => (
-          <li key={id} className={css.item}>
+        contacts.map(({ _id, name, number }) => (
+          <li key={_id} className={css.item}>
             <p className={css.descrList}>{name}</p>
             <p className={css.descrList}>{number}</p>
             <button
               type="button"
               className={css.btnDel}
-              onClick={() => dispatch(deleteContact(id))}
+              onClick={() => dispatch(deleteContact(_id))}
             >
               Delete
             </button>
