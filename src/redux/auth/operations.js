@@ -79,12 +79,12 @@ export const updateAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('avatar', file);
-      const { data } = await instance.post('/users/avatar', formData, {
+      const { data } = await instance.patch('/users/avatar', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       return data.avatar;
     } catch (error) {
-      return thunkApi.rejectWithValue(err.message);
+      return thunkApi.rejectWithValue(error.message);
     }
   }
 );

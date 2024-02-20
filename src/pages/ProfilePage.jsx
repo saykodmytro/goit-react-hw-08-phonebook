@@ -5,7 +5,10 @@ import { selectUserData } from 'redux/auth/auth.selector';
 
 const ProfilePage = () => {
   const userData = useSelector(selectUserData);
-  console.log('userData: ', userData);
+
+  const isAvatar = userData.avatar.includes('gravatar')
+    ? userData.avatar
+    : `http://localhost:8000/${userData.avatar}`;
 
   return (
     <div>
@@ -14,7 +17,7 @@ const ProfilePage = () => {
       </NavLink>
       <h2>{userData.name}</h2>
       <p>{userData.email}</p>
-      <img src={userData.avatar} alt={userData.name} />
+      <img src={isAvatar} alt={userData.name} />
     </div>
   );
 };

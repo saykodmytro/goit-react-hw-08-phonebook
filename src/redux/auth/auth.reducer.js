@@ -43,7 +43,7 @@ const authSlice = createSlice({
         state.userData = payload;
       })
 
-      .addCase(authThunk.updateAvatar.fulfilled, (state, { payload }) => {
+      .addCase(updateAvatar.fulfilled, (state, { payload }) => {
         state.userData.avatar = payload;
       })
 
