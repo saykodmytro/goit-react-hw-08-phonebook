@@ -5,6 +5,7 @@ import {
   authRefresh,
   authRegister,
   loginThunk,
+  updateAvatar,
 } from './operations';
 
 const initialState = {
@@ -42,12 +43,17 @@ const authSlice = createSlice({
         state.userData = payload;
       })
 
+      .addCase(authThunk.updateAvatar.fulfilled, (state, { payload }) => {
+        state.userData.avatar = payload;
+      })
+
       .addMatcher(
         isAnyOf(
           loginThunk.pending,
           authRegister.pending,
           authRefresh.pending,
-          authLogOut.pending
+          authLogOut.pending,
+          updateAvatar.pending
         ),
         state => {
           state.isLoading = true;
@@ -59,7 +65,8 @@ const authSlice = createSlice({
           loginThunk.rejected,
           authRegister.rejected,
           authRefresh.rejected,
-          authLogOut.rejected
+          authLogOut.rejected,
+          updateAvatar.rejected
         ),
         (state, { payload }) => {
           state.isLoading = false;

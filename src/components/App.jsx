@@ -11,6 +11,7 @@ const LoginPage = lazy(() => import('pages/LoginPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
 const ProfilePage = lazy(() => import('pages/ProfilePage'));
+const UpdatePage = lazy(() => import('pages/UpdatePage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -51,6 +52,14 @@ export const App = () => {
           element={
             <PrivateRoute>
               <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile/update"
+          element={
+            <PrivateRoute>
+              <UpdatePage />
             </PrivateRoute>
           }
         />

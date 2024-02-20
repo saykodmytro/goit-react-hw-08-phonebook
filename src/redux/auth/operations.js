@@ -72,3 +72,19 @@ export const authRefresh = createAsyncThunk(
     },
   }
 );
+
+export const updateAvatar = createAsyncThunk(
+  'auth/updateAvatar',
+  async (file, thunkApi) => {
+    try {
+      const formData = new FormData();
+      formData.append('avatar', file);
+      const { data } = await instance.post('/users/avatar', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      return data.avatar;
+    } catch (error) {
+      return thunkApi.rejectWithValue(err.message);
+    }
+  }
+);
